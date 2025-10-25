@@ -433,7 +433,7 @@ DSTATUS disk_initialize (
 
     if (drv) return STA_NOINIT;         /* Supports only drive 0 */
     pico_fatfs_init_spi();              /* Initialize SPI */
-    sleep_ms(10);
+    busy_wait_us(10 * 1000ull);
 
     if (Stat & STA_NODISK) return Stat; /* Is card existing in the soket? */
 
